@@ -260,27 +260,41 @@
         <span class="text-xs font-black uppercase tracking-wider text-amber-500 flex items-center gap-1.5">
             <i class="fas fa-mug-hot"></i> Support the Creator (Buy Me a Coffee)
         </span>
-        <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600">₹10 – ₹25 Token</span>
+        <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-600">₹20 Token</span>
     </div>
     <p class="text-xs text-[var(--text-body)] leading-relaxed font-semibold">
-        ArckType is completely free and ad-free. If this software has helped boost your typing speed and practice, consider buying Avadhesh a coffee or contributing a small support token of <strong>₹10 to ₹25</strong> to encourage further updates!
+        ArckType is completely free and ad-free. If this software has helped boost your typing speed and practice, consider buying Avadhesh a coffee or contributing a small support token of <strong>₹20</strong> to encourage further updates!
     </p>
 
-    <!-- QR Code Container -->
+    <!-- QR Code & Direct Pay Container -->
     <div class="flex flex-col sm:flex-row items-center gap-4 p-3.5 bg-[var(--bg-card)] rounded-xl border border-[var(--border-ui)]">
         <div class="w-32 h-32 rounded-lg bg-white border-2 border-dashed border-[var(--border-ui)] flex items-center justify-center overflow-hidden shrink-0 p-1">
             <!-- Ensure "qrcode image.jpg" is in the exact same folder as this HTML file -->
-            <img id="creator-qr-code" src="qrcode image.jpg" alt="Scan to Support" class="w-full h-full object-contain" onerror="this.style.display='none'; document.getElementById('qr-placeholder-text').style.display='flex';">
+            <img id="creator-qr-code" src="qrcode image.jpg" alt="Scan to Pay ₹20" class="w-full h-full object-contain" onerror="this.style.display='none'; document.getElementById('qr-placeholder-text').style.display='flex';">
             <div id="qr-placeholder-text" class="hidden flex-col items-center justify-center p-2 text-center text-[10px] font-bold text-gray-500">
                 <i class="fas fa-qrcode text-2xl mb-1 text-amber-500"></i>
-                <span>QR Code Placeholder</span>
+                <span>QR Code Missing</span>
             </div>
         </div>
-        <div class="space-y-1.5 text-center sm:text-left">
-            <span class="text-xs font-black text-[var(--text-title)] block">Scan with any UPI App</span>
-            <span class="text-[11px] text-[var(--text-muted)] block font-medium">GPay • PhonePe • Paytm • BHIM</span>
-            <span class="text-[10px] mono-code bg-[var(--bg-card-subtle)] px-2 py-1 rounded border border-[var(--border-ui)] font-bold text-[var(--primary)] inline-block mt-1">
-                UPI: your-upi-id@bank
+
+        <div class="space-y-2 text-center sm:text-left flex-1">
+            <div>
+                <span class="text-xs font-black text-[var(--text-title)] block">Scan with any UPI App</span>
+                <span class="text-[11px] text-[var(--text-muted)] block font-medium">PhonePe • GPay • Paytm • BHIM</span>
+            </div>
+
+            <!-- Direct Pay Button (Opens PhonePe / UPI on Mobile) -->
+            <div class="pt-1 flex flex-col sm:flex-row items-center gap-2">
+                <a href="phonepe://pay?pa=YOUR_UPI_ID@ybl&pn=Avadhesh&am=20.00&cu=INR&tn=Coffee%20for%20ArckType"
+                   onclick="if(!/Android|iPhone|iPad/i.test(navigator.userAgent)){ alert('Please scan the QR code using PhonePe or any UPI app on your mobile phone!'); return false; }"
+                   class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2 rounded-lg bg-[#5f259f] hover:bg-[#4a1c7c] text-white text-xs font-bold shadow-sm transition-all cursor-pointer">
+                    <i class="fas fa-mug-hot"></i>
+                    <span>Buy Me a Coffee (₹20)</span>
+                </a>
+            </div>
+
+            <span class="text-[10px] mono-code bg-[var(--bg-card-subtle)] px-2 py-1 rounded border border-[var(--border-ui)] font-bold text-[var(--primary)] inline-block">
+                UPI: YOUR_UPI_ID@ybl
             </span>
         </div>
     </div>
